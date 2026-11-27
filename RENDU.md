@@ -37,9 +37,12 @@
 
 ## Exercice 5 — Scaling & mises à jour
 
-9. Sur quels nœuds se trouvent vos 3 réplicas ? Collez la sortie de `kubectl get pods -l app=site -o wide`.
+9. Sur quels nœuds se trouvent vos 3 réplicas ? Collez la sortie de `NAME                    READY   STATUS    RESTARTS   AGE   IP           NODE               NOMINATED NODE   READINESS GATES
+site-7b7586ddb4-9llvc   1/1     Running   0          21m   10.42.0.12   k3d-lab-server-0   <none>           <none>
+site-7b7586ddb4-t4bfb   1/1     Running   0          21m   10.42.2.9    k3d-lab-agent-1    <none>           <none>
+site-7b7586ddb4-xndf7   1/1     Running   0          21m   10.42.0.10   k3d-lab-server-0   <none>           <none>`.
    ```
-k3d-lab-agent-0, k3d-lab-agent-1 et k3d-lab-server-0.
+Deux réplicas se trouvent sur `k3d-lab-server-0` et un sur `k3d-lab-agent-1`
    ```
 10. Avec l'image `nginx:9.99`, quel statut avait le pod ? Quelle commande vous a donné la cause ?
     >Pendant la mise à jour, les nouveaux pods nginx:1.28 démarrent et remplacent les anciens nginx:1.27 un par un, sans couper le site.
